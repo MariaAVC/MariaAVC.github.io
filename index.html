@@ -1,178 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maria Valdez Cabrera</title>
-    
-    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #B7CFDC;
-  font-size: 20px;
-}
+  :root {
+    --navy: #1a2e3b;
+    --teal: #2d6a7f;
+    --teal-light: #4a9bb5;
+    --sky: #b7cfdc;
+    --sky-light: #deeaf1;
+    --white: #f9fbfc;
+    --text: #1e3240;
+    --text-muted: #527384;
+    --accent: #c97b3a;
+    --border: #c2d8e3;
+  }
 
-.topnav {
-  overflow: hidden;
-  background-color: #385E72;
-}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    background-color: var(--white);
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.7;
+  }
 
-.topnav a:hover {
-  background-color: #6AABD2;
-  color: black;
-}
+  /* ── NAV ── */
+  nav {
+    background-color: var(--navy);
+    display: flex;
+    align-items: center;
+    padding: 0 48px;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
 
-.topnav a.active {
-  background-color: #0C4160;
-  color: white;
-}
-    
-.Top-column {
-    width: 60%;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 40px;
-    padding-right: 0px;
-    float: left;
-}
-    
-.Top-column h1 {
-  margin: 0
-}
-.Top-column h4 {
-  margin: 0
-}
-    
-.first-column {
-    width: 50%;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    padding-left: 80px;
-    padding-right: 0px;
-    float: left;
-}
+  nav .site-name {
+    color: #fff;
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    margin-right: auto;
+    opacity: 0.85;
+  }
 
-.second-column {
-    width: 35% !important;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    padding-left: 0px;
-    padding-right: 80px;
-    float: right;
-}
-    
-}
+  nav a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0 20px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  nav a:hover { color: #fff; border-bottom-color: var(--teal-light); }
+  nav a.active { color: #fff; border-bottom-color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+    padding: 64px 48px 56px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-text h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .hero-text .pronouns {
+    color: var(--teal-light);
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-text .role {
+    color: rgba(255,255,255,0.75);
+    font-size: 1rem;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  .hero-photo {
+    width: 280px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    border: 3px solid rgba(255,255,255,0.15);
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .page-body {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 48px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 64px;
+  }
+
+  /* ── SECTIONS ── */
+  section { margin-bottom: 52px; }
+
+  h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  p { margin-bottom: 16px; color: var(--text); }
+
+  /* ── CREDENTIALS TABLE ── */
+  .cred-block { margin-bottom: 24px; }
+
+  .cred-label {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .cred-item {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  .cred-item:last-child { border-bottom: none; }
+
+  .cred-year {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── PUBLICATIONS ── */
+  .pub-card {
+    background: var(--sky-light);
+    border-left: 3px solid var(--teal-light);
+    border-radius: 0 6px 6px 0;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    font-size: 15px;
+  }
+
+  .pub-card.preprint {
+    border-left-color: var(--accent);
+    background: #fdf5ee;
+  }
+
+  .pub-card .pub-title {
+    font-style: italic;
+    color: var(--navy);
+    font-weight: 400;
+  }
+
+  .pub-card .pub-venue {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 6px;
+  }
+
+  .pub-card a {
+    color: var(--teal);
+    font-size: 13px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  .pub-card a:hover { text-decoration: underline; }
+
+  .pub-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 99px;
+    margin-bottom: 8px;
+  }
+
+  .tag-published { background: #d4edf5; color: var(--teal); }
+  .tag-preprint { background: #fde8d0; color: var(--accent); }
+  .tag-inprep { background: #e8e8e8; color: #666; }
+
+  /* ── SIDEBAR ── */
+  .sidebar {}
+
+  .contact-card {
+    background: var(--sky-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 28px;
+  }
+
+  .contact-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .contact-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    align-items: baseline;
+  }
+
+  .contact-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 500;
+    width: 42px;
+    flex-shrink: 0;
+  }
+
+  .contact-row a {
+    color: var(--teal);
+    text-decoration: none;
+    word-break: break-all;
+    line-height: 1.4;
+  }
+
+  .contact-row a:hover { text-decoration: underline; }
+
+  .cv-btn {
+    display: block;
+    background: var(--teal);
+    color: #fff;
+    text-align: center;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-top: 16px;
+    transition: background 0.2s;
+  }
+
+  .cv-btn:hover { background: var(--navy); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 800px) {
+    nav { padding: 0 20px; }
+    .hero { grid-template-columns: 1fr; padding: 40px 24px; }
+    .hero-photo { width: 215px; height: 170px; }
+    .page-body { grid-template-columns: 1fr; padding: 36px 24px; }
+    .hero-text h1 { font-size: 2rem; }
+  }
 </style>
-<script src=""></script>
+</head>
 <body>
-<div class="topnav">
+
+<nav>
+  <span class="site-name">Maria Valdez Cabrera</span>
   <a class="active" href="index.html">About</a>
   <a href="Research.html">Research</a>
   <a href="Teaching.html">Teaching</a>
-</div>
-<div class="row">
-    <div class="Top-column">
-        <h1>Maria Valdez Cabrera (she/her) </h1>
-        <h4>Postdoctoral Fellow, </h4> 
-        <h4>Department of Biostatistics, University of Washington</h4>
+</nav>
+
+<div class="hero">
+  <div class="hero-text">
+    <h1>Maria Valdez Cabrera</h1>
+    <div class="pronouns">she / her</div>
+    <div class="role">
+      Postdoctoral Scholar<br>
+      Department of Biostatistics, University of Washington
     </div>
+  </div>
+  <img src="Images/Me_cape.jpg" alt="Maria Valdez Cabrera" class="hero-photo">
 </div>
 
-<div class="row">
-    <div class="first-column">
-        
-        <h2>About me </h2>
-        
-        
-        <p>  I am a mathematical statistician developing methods for complex data structures arising in health and biological sciences. My research largely has centered on creating computational tools for phylogenetics that are both mathematically rigorous and suited to the properties of empirical data. Ultimately, I seek to improve the interpretability and reliability of object-oriented data analyses by integrating statistical methodology with applied mathematics. </p>
-        
-        
-        <table>
-            <tr>
-                <td><b> Degrees: </b></td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>PhD in Biostastatistics, University of Washington - August 2024</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td> Bachelor in Mathematics, Universidad de Guanajuato - June 2018</td>
-            </tr>
-            <tr>
-                <td><b> Awards: </b></td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td> The School of Public Health Outstanding PhD Award in Biostatistics. </td>
-            </tr>
-            <!-- NEW SECTION: Selected Publications -->
-            <tr>
-                <td><b>Selected<br>Publications:</b></td>
-                <td></td>
-            </tr>
+<div class="page-body">
+  <main>
+    <section>
+      <h2>About</h2>
+      <p>I am a mathematical statistician developing methods for complex data structures arising in health and biological sciences. My research largely has centered on creating computational tools for phylogenetics that are both mathematically rigorous and suited to the properties of empirical data. </p>
+      <p>Ultimately, I seek to improve the interpretability and reliability of object-oriented data analyses by integrating statistical methodology with applied mathematics.</p>
+    </section>
 
-            <tr>
-                <td></td>
-                <td>
-                    Valdez Cabrera, M. A., & Willis, A. D. (2025). <i>Geometry of the space of phylogenetic trees with non-identical leaves.</i> Submitted and under review.  
-                    <a href="https://doi.org/10.48550/arXiv.2511.23433">doi:10.48550/arXiv.2511.23433</a>
-                </td>
-            </tr>
+    <section>
+      <h2>Degrees</h2>
+      <div class="cred-item">
+        <span class="cred-year">2024</span>
+        <span>PhD in Biostatistics — University of Washington</span>
+      </div>
+      <div class="cred-item">
+        <span class="cred-year">2018</span>
+        <span>Bachelor in Mathematics — Universidad de Guanajuato</span>
+      </div>
+    </section>
 
-            <tr>
-                <td></td>
-                <td>
-                    Valdez Cabrera, M. A., & Willis, A. D. (2025). <i>Distances Between Extension Spaces of Phylogenetic Trees.</i>  
-                    <i>IEEE Transactions on Computational Biology and Bioinformatics</i>, 22(2), 614–627.  
-                    <a href="https://doi.org/10.1109/TCBBIO.2025.3526422">doi:10.1109/TCBBIO.2025.3526422</a>
-                </td>
-            </tr>
+    <section>
+      <h2>Awards</h2>
+      <div class="cred-item">
+        <span>School of Public Health Outstanding PhD Award in Biostatistics</span>
+      </div>
+    </section>
 
-            <tr>
-                <td></td>
-                <td>
-                    Valdez Cabrera, M. A., Willis, A. D., & Taeb, A. (2025). <i>Consensus Tree Estimation with False Discovery Rate Control via Partially Ordered Sets.</i> Manuscript in preparation.  
-                    <a href="https://doi.org/10.48550/arxiv.2508.06747">doi:10.48550/arxiv.2508.06747</a>
-                </td>
-            </tr>
-        </table>
+    <section>
+      <h2>Selected Publications</h2>
         
+      <div class="pub-card">
+        <div class="pub-tag tag-published">Published</div>
+        <div class="pub-title">Geometry of the space of phylogenetic trees with non-identical leaves</div>
+        <div class="pub-venue">Valdez Cabrera, M. A., &amp; Willis, A. D. (2026) · <em>Advances in Applied Mathematics</em>, 178 </div>
+        <a href="https://authors.elsevier.com/c/1mxg9in4Dk5Rt">doi.org/10.1016/j.aam.2026.103091 →</a>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-tag tag-published">Published</div>
+        <div class="pub-title">Distances Between Extension Spaces of Phylogenetic Trees</div>
+        <div class="pub-venue">Valdez Cabrera, M. A., &amp; Willis, A. D. (2025) · <em>IEEE Transactions on Computational Biology and Bioinformatics</em>, 22(2), 614–627</div>
+        <a href="https://doi.org/10.1109/TCBBIO.2025.3526422">doi:10.1109/TCBBIO.2025.3526422 →</a>
+      </div>
+
+      <div class="pub-card preprint">
+        <div class="pub-tag tag-inprep">In Preparation</div>
+        <div class="pub-title">Consensus Tree Estimation with False Discovery Rate Control via Partially Ordered Sets</div>
+        <div class="pub-venue">Valdez Cabrera, M. A., Willis, A. D., &amp; Taeb, A. (2025)</div>
+        <a href="https://doi.org/10.48550/arxiv.2508.06747">doi:10.48550/arxiv.2508.06747 →</a>
+      </div>
+    </section>
+  </main>
+
+  <aside class="sidebar">
+    <div class="contact-card">
+      <h3>Contact</h3>
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <a href="mailto:mariavc@uw.edu">mariavc@uw.edu</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">GitHub</span>
+        <a href="https://github.com/MariaAVC">MariaAVC</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">UW</span>
+        <a href="https://www.biostat.washington.edu/people/maria-valdez-cabrera">Faculty Profile</a>
+      </div>
+      <a class="cv-btn" href="CV.pdf" target="_blank">Download CV (PDF)</a>
     </div>
-    <div class="second-column">
-         <img src="Images/Me_cape.jpg" alt="ME" style="width:100%">
-        <h2>Contact</h2>
-        <table>
-          <tr>
-            <td><b>Email: </b></td>
-              <td>mariavc@uw.edu</td>
-          </tr>
-          <tr>
-            <td><b>Web: </b></td>
-            <td><a href="https://github.com/MariaAVC">https://github.com/MariaAVC</a></td>
-          </tr>
-          <tr>
-              <td> </td>
-              <td><a href="https://www.biostat.washington.edu/people/maria-valdez-cabrera">https://www.biostat.washington.edu/people/maria-valdez-cabrera</a></td>
-          </tr>
-            <tr>
-            <td><b>CV: </b></td>
-            <td><a href="CV.pdf" target="_blank">CV.pdf</a></td>
-          </tr>
-        </table>
-    </div>
+  </aside>
 </div>
+
+<footer>
+  Maria Valdez Cabrera · Department of Biostatistics, University of Washington
+</footer>
 
 </body>
 </html>
